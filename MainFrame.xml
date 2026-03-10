@@ -1,0 +1,1135 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+	<Button name="RIC_GuildHeader" virtual="true">
+		<Scripts>
+			<OnClick>
+				RIC._Guild_Browser.sortClicked(self:GetID())
+			</OnClick>
+			<OnEnter>
+				_G[self:GetName().."BG"]:SetVertexColor(1, 1, 1, 1)
+			</OnEnter>
+			<OnLeave>
+				_G[self:GetName().."BG"]:SetVertexColor(0.7, 0.7, 0.7, 0.7)
+			</OnLeave>
+			<OnLoad>
+				self:GetScript("OnLeave")(self)
+			</OnLoad>
+		</Scripts>
+		<NormalTexture name="$parentBG">
+			<Color r="0.4" g="0.4" b="0.04" a="0.4" />
+		</NormalTexture>
+		<ButtonText>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="4" y="0" />
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="GameFontHighlight" />
+		<HighlightFont style="GameFontNormal" />
+	</Button>
+	<Button name="RIC_GuildEntry" virtual="true" hidden="true">
+		<Size>
+			<AbsDimension x="210" y="18" />
+		</Size>
+		<Layers>
+			<Layer>
+				<FontString name="$parentName" inherits="GameFontNormalSmall" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="100" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="4"	y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentRank" inherits="GameFontNormalSmall" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="80" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentName" relativePoint="RIGHT" />
+					</Anchors>
+				</FontString>
+				<Texture name="$parentCheck" file="Interface\BUTTONS\UI-CheckBox-Check" hidden="true">
+					<Size>
+						<AbsDimension x="20" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentRank" relativePoint="RIGHT" />
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				_G[self:GetName().."BG"]:Hide()
+			</OnLoad>
+			<OnEnter>
+				_G[self:GetName().."BG"]:Show()
+			</OnEnter>
+			<OnLeave>
+				_G[self:GetName().."BG"]:Hide()
+			</OnLeave>
+			<OnClick>
+				RIC._Guild_Browser.selectRow(self:GetID())
+			</OnClick>
+		</Scripts>
+		<NormalTexture name="$parentBG">
+			<Color r="0" g="0" b="0.6" a="0.35" />
+		</NormalTexture>
+	</Button>
+	<Button name="RIC_RosterHeader" virtual="true">
+		<Scripts>
+			<OnClick>
+				RIC._Roster_Browser.sortClicked(self:GetID())
+			</OnClick>
+			<OnEnter>
+				_G[self:GetName().."BG"]:SetVertexColor(1, 1, 1, 1)
+			</OnEnter>
+			<OnLeave>
+				_G[self:GetName().."BG"]:SetVertexColor(0.7, 0.7, 0.7, 0.7)
+			</OnLeave>
+			<OnLoad>
+				self:GetScript("OnLeave")(self)
+			</OnLoad>
+		</Scripts>
+		<NormalTexture name="$parentBG">
+			<Color r="0.4" g="0.4" b="0.04" a="0.4" />
+		</NormalTexture>
+		<ButtonText>
+			<Anchors>
+				<Anchor point="LEFT">
+					<Offset>
+						<AbsDimension x="4" y="0" />
+					</Offset>
+				</Anchor>
+			</Anchors>
+		</ButtonText>
+		<NormalFont style="GameFontHighlight" />
+		<HighlightFont style="GameFontNormal" />
+	</Button>
+	<Button name="RIC_RosterEntry" virtual="true" hidden="true">
+		<Size>
+			<AbsDimension x="210" y="18" />
+		</Size>
+		<Layers>
+			<Layer>
+				<FontString name="$parentName" inherits="GameFontNormalSmall" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="80" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="4"	y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentRank" inherits="GameFontNormalSmall" justifyH="LEFT">
+					<Size>
+						<AbsDimension x="80" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentName" relativePoint="RIGHT" />
+					</Anchors>
+				</FontString>
+				<Texture name="$parentCheck" file="Interface\BUTTONS\UI-CheckBox-Check" hidden="true">
+					<Size>
+						<AbsDimension x="20" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentRank" relativePoint="RIGHT" />
+					</Anchors>
+				</Texture>
+				<Texture name="$parentStatus" file="Interface\\AddOns\\RaidInviteClassic\\img\\question_mark">
+					<Size>
+						<AbsDimension x="20" y="18" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentCheck" relativePoint="RIGHT">
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				_G[self:GetName().."BG"]:Hide()
+			</OnLoad>
+			<OnEnter>
+				_G[self:GetName().."BG"]:Show()
+				RIC._Roster_Browser.showPlayerTooltip(self, self:GetID())
+			</OnEnter>
+			<OnLeave>
+				_G[self:GetName().."BG"]:Hide()
+				RIC._Roster_Browser.hidePlayerTooltip(self:GetID())
+			</OnLeave>
+			<OnClick>
+				RIC._Roster_Browser.selectRow(self:GetID())
+			</OnClick>
+		</Scripts>
+		<NormalTexture name="$parentBG">
+			<Color r="0" g="0" b="0.6" a="0.35" />
+		</NormalTexture>
+	</Button>
+	<Button name="RIC_EditBoxHeader" virtual="true">
+			<Scripts>
+				<OnEnter>
+					_G[self:GetName().."BG"]:SetVertexColor(1, 1, 1, 1)
+				</OnEnter>
+				<OnLeave>
+					_G[self:GetName().."BG"]:SetVertexColor(0.7, 0.7, 0.7, 0.7)
+				</OnLeave>
+				<OnLoad>
+					self:GetScript("OnLeave")(self)
+				</OnLoad>
+			</Scripts>
+			<NormalTexture name="$parentBG">
+				<Color r="0.4" g="0.4" b="0.04" a="0.4" />
+			</NormalTexture>
+			<ButtonText>
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</ButtonText>
+			<NormalFont style="GameFontHighlight"/>
+			<HighlightFont style="GameFontNormal" />
+		</Button>
+	<Frame name="RIC_MainFrame" parent="UIParent" hidden="true" enablemouse="true" movable="true" frameStrata="DIALOG">
+		<Size>
+			<AbsDimension x="396" y="424" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" relativeTo="UIParent" />
+		</Anchors>
+		<Backdrop
+			   bgFile="Interface\DialogFrame\UI-DialogBox-Background-Dark"
+			   edgeFile="Interface\DialogFrame\UI-DialogBox-Border"
+			   tile="true">
+			   <BackgroundInsets>
+				   <AbsInset left="11" right="12" top="12" bottom="11"/>
+			   </BackgroundInsets>
+			   <TileSize>
+				   <AbsValue val="32"/>
+			   </TileSize>
+			   <EdgeSize>
+				   <AbsValue val="32"/>
+			   </EdgeSize>
+		</Backdrop>
+		<Frames>
+			<Frame name="RIC_TabPage1">
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+                	<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+
+				<Layers>
+					<Layer>
+						-- Filter texts
+						<FontString text="Ready" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-166" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString text="Extra" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-196" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString text="Not invited" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-226" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString text="Invite pending" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-256" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString text="Invite failed" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-286" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString text="Missing" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-316" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString text="Other" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+							<Size x="100" y="24"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+									<Offset x="295" y="-346" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+
+				<Frames>
+					<Frame name="RIC_RosterDisplay">
+						<Size x="80" y="24"/>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="265" y="-10" />
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<FontString name="RIC_RosterNumberText" text="Roster: 0" inherits="GameFontNormal" justifyV="MIDDLE" justifyH="LEFT">
+									<Size x="80" y="24"/>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Scripts>
+							<OnEnter>
+								RIC._Roster_Browser.showRosterTooltip()
+							</OnEnter>
+							<OnLeave>
+								RIC._Roster_Browser.hideRosterTooltip()
+							</OnLeave>
+						</Scripts>
+					</Frame>
+
+					<Frame name="RIC_RosterFrame">
+						<Size>
+							<AbsDimension x="218" y="392" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="16" y="-16" />
+							</Anchor>
+						</Anchors>
+						<Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+							<TileSize>
+								<AbsValue val="16" />
+							</TileSize>
+							<EdgeSize>
+								<AbsValue val="16" />
+							</EdgeSize>
+						</Backdrop>
+						<Frames>
+							<Button name="$parentHeaderName" inherits="RIC_RosterHeader" id="1" text="Name">
+								<Size>
+									<AbsDimension x="80" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT">
+										<Offset x="4" y="-3" />
+									</Anchor>
+								</Anchors>
+							</Button>
+							<Button name="$parentHeaderRank" inherits="RIC_RosterHeader" id="2" text="Rank">
+								<Size>
+									<AbsDimension x="80" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="$parentHeaderName" relativePoint="RIGHT" />
+								</Anchors>
+							</Button>
+							<Button name="$parentHeaderSelected" inherits="RIC_RosterHeader" id="3" text="">
+								<Size>
+									<AbsDimension x="21" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="$parentHeaderRank" relativePoint="RIGHT" />
+								</Anchors>
+							</Button>
+							<Button name="$parentHeaderStatus" inherits="RIC_RosterHeader" id="4" text="">
+								<Size>
+									<AbsDimension x="29" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="$parentHeaderSelected" relativePoint="RIGHT" />
+								</Anchors>
+							</Button>
+						</Frames>
+						<Scripts>
+							<OnMouseWheel>
+								RIC._Roster_Browser.quickScroll(self, delta)
+							</OnMouseWheel>
+						</Scripts>
+					</Frame>
+					<Frame name="RIC_RosterSliderContainer">
+						<Size>
+							<AbsDimension x="23"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="RIC_RosterFrame">
+								<Offset x="1" y="3"/>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" relativeTo="RIC_RosterFrame">
+								<Offset x="1" y="-3"/>
+							</Anchor>
+						</Anchors>
+						<Frames>
+							<Slider name="RIC_RosterSlider" minValue="0" maxValue="100" valueStep="1">
+								<Size>
+									<AbsDimension x="18" y="353"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER" relativePoint="CENTER">
+										<Offset x="1" y="-1" />
+									</Anchor>
+								</Anchors>
+								<Frames>
+									<Button name="$parentScrollUpButton" inherits="UIPanelScrollUpButtonTemplate">
+										<Anchors>
+											<Anchor point="BOTTOM" relativePoint="TOP"/>
+										</Anchors>
+										<Scripts>
+											<OnClick>
+												RIC._Roster_Browser.sliderButtonPushed(1)
+											</OnClick>
+										</Scripts>
+									</Button>
+									<Button name="$parentScrollDownButton" inherits="UIPanelScrollDownButtonTemplate">
+										<Anchors>
+											<Anchor point="TOP" relativePoint="BOTTOM"/>
+										</Anchors>
+										<Scripts>
+											<OnClick>
+												RIC._Roster_Browser.sliderButtonPushed(2)
+											</OnClick>
+										</Scripts>
+									</Button>
+								</Frames>
+								<Scripts>
+									<OnValueChanged>
+										RIC._Roster_Browser.updateOffset(self:GetValue())
+									</OnValueChanged>
+								</Scripts>
+								<ThumbTexture name="$parentThumbTexture" inherits="UIPanelScrollBarButton" file="Interface\Buttons\UI-ScrollBar-Knob">
+									<Size>
+										<AbsDimension x="16" y="16"/>
+									</Size>
+									<!--TexCoords left="0.20" right="0.80" top="0.125" bottom="0.875"/-->
+								</ThumbTexture>
+							</Slider>
+						</Frames>
+						<Backdrop edgeFile="Interface\Buttons\UI-SliderBar-Border" bgFile="Interface\Buttons\UI-SliderBar-Background" tile="true">
+							<EdgeSize>
+								<AbsValue val="8" />
+							</EdgeSize>
+							<TileSize>
+								<AbsValue val="8" />
+							</TileSize>
+							<BackgroundInsets>
+								<AbsInset left="3" right="3" top="6" bottom="6" />
+							</BackgroundInsets>
+						</Backdrop>
+					</Frame>
+
+					<Button name="RIC_ManageRosters" inherits="UIPanelButtonTemplate" text="Manage rosters">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-30" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Manager.toggle()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_ImportList" inherits="UIPanelButtonTemplate" text="Import List">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-51" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Import_Manager.toggle()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_RosterSelectAll" inherits="UIPanelButtonTemplate" text="Select All">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-72" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.selectAll()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_RosterSelectNone" inherits="UIPanelButtonTemplate" text="Select None">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-93" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.clearSelection()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_AddToRoster" inherits="UIPanelButtonTemplate" text="Add">
+						<Size>
+							<AbsDimension x="60" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-114" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.addSelectedToRoster()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_RemoveFromRoster" inherits="UIPanelButtonTemplate" text="Remove">
+						<Size>
+							<AbsDimension x="60" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="324" y="-114" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.removeFromRoster()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_OpenGroupWindow" inherits="UIPanelButtonTemplate" text="View groups">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-135" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Group_Manager.toggle()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_SendMassInvites" inherits="UIPanelButtonTemplate" text="Start Invites">
+						<Size>
+							<AbsDimension x="121" y="30" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-378" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.toggleInvitePhase()
+							</OnClick>
+						</Scripts>
+					</Button>
+
+					-- View filter buttons
+					<CheckButton name="RIC_ReadyBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-166" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\checkmark_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\checkmark_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\img\checkmark_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\checkmark"/>
+					</CheckButton>
+					<CheckButton name="RIC_ExtraBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-196" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\plus_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\plus_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\img\plus_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\plus"/>
+					</CheckButton>
+					<CheckButton name="RIC_NotInvitedBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-226" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\dash_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\dash_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\img\dash_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\dash"/>
+					</CheckButton>
+					<CheckButton name="RIC_InvitePendingBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-256" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\dots_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\dots_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\img\dots_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\dots"/>
+					</CheckButton>
+					<CheckButton name="RIC_InviteFailedBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-286" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\red_cross_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\red_cross_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\img\red_cross_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\red_cross"/>
+					</CheckButton>
+					<CheckButton name="RIC_MissingBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-316" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\lightning_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\lightning_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\imglightning_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\lightning"/>
+					</CheckButton>
+					<CheckButton name="RIC_OtherBox" inherits="UICheckButtonTemplate" text="">
+						<Size>
+							<AbsDimension x="24" y="24"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="260" y="-346" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Roster_Browser.buildRosterRaidList()
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\question_mark_grey"/>
+						<PushedTexture file="Interface\AddOns\RaidInviteClassic\img\question_mark_grey"/>
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+						<DisabledCheckedTexture file="Interface\AddOns\RaidInviteClassic\img\question_mark_grey"/>
+						<CheckedTexture file="Interface\AddOns\RaidInviteClassic\img\question_mark"/>
+					</CheckButton>
+
+				</Frames>
+			</Frame>
+			<Frame name="RIC_TabPage2">
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+                	<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Frames>
+					<Frame name="RIC_GuildMemberFrame">
+						<Size>
+							<AbsDimension x="218" y="392" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="16" y="-16" />
+							</Anchor>
+						</Anchors>
+						<Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+							<TileSize>
+								<AbsValue val="16" />
+							</TileSize>
+							<EdgeSize>
+								<AbsValue val="16" />
+							</EdgeSize>
+						</Backdrop>
+						<Frames>
+							<Button name="$parentHeaderName" inherits="RIC_GuildHeader" id="1" text="Name">
+								<Size>
+									<AbsDimension x="110" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT">
+										<Offset x="4" y="-3" />
+									</Anchor>
+								</Anchors>
+							</Button>
+							<Button name="$parentHeaderRank" inherits="RIC_GuildHeader" id="2" text="Rank">
+								<Size>
+									<AbsDimension x="80" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="$parentHeaderName" relativePoint="RIGHT" />
+								</Anchors>
+							</Button>
+							<Button name="$parentHeaderSelected" inherits="RIC_GuildHeader" id="3" text="">
+								<Size>
+									<AbsDimension x="21" y="24" />
+								</Size>
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="$parentHeaderRank" relativePoint="RIGHT" />
+								</Anchors>
+							</Button>
+						</Frames>
+						<Scripts>
+							<OnMouseWheel>
+								RIC._Guild_Browser.quickScroll(self, delta)
+							</OnMouseWheel>
+						</Scripts>
+					</Frame>
+					<Frame name="RIC_GuildSliderContainer">
+						<Size>
+							<AbsDimension x="23"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="RIC_GuildMemberFrame">
+								<Offset x="1" y="3"/>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" relativeTo="RIC_GuildMemberFrame">
+								<Offset x="1" y="-3"/>
+							</Anchor>
+						</Anchors>
+						<Frames>
+							<Slider name="RIC_GuildSlider" minValue="0" maxValue="100" valueStep="1">
+								<Size>
+									<AbsDimension x="18" y="353"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER" relativePoint="CENTER">
+										<Offset x="1" y="-1" />
+									</Anchor>
+								</Anchors>
+								<Frames>
+									<Button name="$parentScrollUpButton" inherits="UIPanelScrollUpButtonTemplate">
+										<Anchors>
+											<Anchor point="BOTTOM" relativePoint="TOP"/>
+										</Anchors>
+										<Scripts>
+											<OnClick>
+												RIC._Guild_Browser.sliderButtonPushed(1)
+											</OnClick>
+										</Scripts>
+									</Button>
+									<Button name="$parentScrollDownButton" inherits="UIPanelScrollDownButtonTemplate">
+										<Anchors>
+											<Anchor point="TOP" relativePoint="BOTTOM"/>
+										</Anchors>
+										<Scripts>
+											<OnClick>
+												RIC._Guild_Browser.sliderButtonPushed(2)
+											</OnClick>
+										</Scripts>
+									</Button>
+								</Frames>
+								<Scripts>
+									<OnValueChanged>
+										RIC._Guild_Browser.updateOffset(self:GetValue())
+									</OnValueChanged>
+								</Scripts>
+								<ThumbTexture name="$parentThumbTexture" inherits="UIPanelScrollBarButton" file="Interface\Buttons\UI-ScrollBar-Knob">
+									<Size>
+										<AbsDimension x="16" y="16"/>
+									</Size>
+									<!--TexCoords left="0.20" right="0.80" top="0.125" bottom="0.875"/-->
+								</ThumbTexture>
+							</Slider>
+						</Frames>
+						<Backdrop edgeFile="Interface\Buttons\UI-SliderBar-Border" bgFile="Interface\Buttons\UI-SliderBar-Background" tile="true">
+							<EdgeSize>
+								<AbsValue val="8" />
+							</EdgeSize>
+							<TileSize>
+								<AbsValue val="8" />
+							</TileSize>
+							<BackgroundInsets>
+								<AbsInset left="3" right="3" top="6" bottom="6" />
+							</BackgroundInsets>
+						</Backdrop>
+					</Frame>
+
+					<Button name="RIC_GuildSelectAll" inherits="UIPanelButtonTemplate" text="Select All">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-30" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.selectAll()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<Button name="RIC_GuildSelectNone" inherits="UIPanelButtonTemplate" text="Select None">
+						<Size>
+							<AbsDimension x="121" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-51" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.clearSelection()
+							</OnClick>
+						</Scripts>
+					</Button>
+					<CheckButton name="RIC_ShowOfflineBox" inherits="UICheckButtonTemplate" text="">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-68" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.offlineBoxToggle()
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank1" inherits="UICheckButtonTemplate" text="" id="1">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-96" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank2" inherits="UICheckButtonTemplate" text="" id="2">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-124" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank3" inherits="UICheckButtonTemplate" text="" id="3">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-152" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank4" inherits="UICheckButtonTemplate" text="" id="4">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-180" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank5" inherits="UICheckButtonTemplate" text=""  id="5">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-208" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank6" inherits="UICheckButtonTemplate" text="" id="6">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-236" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank7" inherits="UICheckButtonTemplate" text="" id="7">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-264" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank8" inherits="UICheckButtonTemplate" text="" id="8">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-292" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank9" inherits="UICheckButtonTemplate" text="" id="9">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-320" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<CheckButton name="RIC_ShowRank10" inherits="UICheckButtonTemplate" text="" id="10">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="262" y="-348" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.rankBoxToggle(self:GetID())
+							</OnClick>
+						</Scripts>
+					</CheckButton>
+					<Button name="RIC_AddRoster" inherits="UIPanelButtonTemplate" text="Add to Roster">
+						<Size>
+							<AbsDimension x="121" y="30" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+								<Offset x="263" y="-378" />
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								RIC._Guild_Browser.addSelectedToRoster()
+							</OnClick>
+						</Scripts>
+
+					</Button>
+				</Frames>
+			</Frame>
+			<Button name="$parentTab1" text="Roster" inherits="CharacterFrameTabButtonTemplate" id="1">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="BOTTOMLEFT">
+						<Offset x="60" y="-10" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+                    	PanelTemplates_SetTab(RIC_MainFrame, 1)
+						RIC_TabPage1:Show()
+                    	RIC_TabPage2:Hide()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentTab2" text="Add Guildies" inherits="CharacterFrameTabButtonTemplate" id="2">
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parentTab1">
+						<Offset x="0" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+                    	PanelTemplates_SetTab(RIC_MainFrame, 2)
+						RIC_TabPage1:Hide()
+                    	RIC_TabPage2:Show()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="RIC_CloseButtonThing" inherits="UIPanelCloseButton">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="RIC_MainFrame">
+						<Offset>
+							<AbsDimension x="-1" y="-2" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="RIC_SettingsButton" inherits="UIPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="RIC_MainFrame">
+						<Offset>
+							<AbsDimension x="-27" y="-6" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Size>
+					<AbsDimension x="24" y="24"/>
+				</Size>
+				<Scripts>
+					<OnClick>
+						if RIC.OpenConfig then
+							RIC.OpenConfig()
+						end
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\AddOns\RaidInviteClassic\img\dots_small"/>
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentCorner" file="Interface\DialogFrame\UI-DialogBox-Corner">
+					<Size>
+						<AbsDimension x="32" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPRIGHT">
+							<Offset>
+								<AbsDimension x="-6" y="-7"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+    	        PanelTemplates_SetNumTabs(RIC_MainFrame, 2)
+	            PanelTemplates_SetTab(RIC_MainFrame, 1)
+				self:RegisterForDrag("LeftButton")
+
+				-- Add backdrop for WoW >=9.0
+				if BackdropTemplateMixin then
+					self.background = CreateFrame("Frame", nil, self, "BackdropTemplate")
+					self.background:SetAllPoints()
+					backdropInfo = {
+						bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
+						edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+						tile = true,
+						tileSize = 32,
+						edgeSize = 32,
+						insets = { left = 11, right = 12, top = 12, bottom = 9, },
+					}
+					self.background:SetBackdrop(backdropInfo)
+					self.background:SetFrameLevel(self:GetFrameLevel())
+				end
+			</OnLoad>
+			<OnDragStart>
+				self:StartMoving()
+		  	</OnDragStart>
+			<OnDragStop>
+		        self:StopMovingOrSizing()
+		    </OnDragStop>
+			<OnShow>
+				PanelTemplates_SetTab(RIC_MainFrame, 1)
+    	        RIC_TabPage1:Show()
+				RIC_TabPage2:Hide()
+				RIC.MainFrame_OnShow()
+			</OnShow>
+		</Scripts>
+	</Frame>
+</Ui>
